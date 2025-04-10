@@ -1,2 +1,1 @@
-Executável
-docker compose up
+Script de backup do Postgres utilizando o Docker
