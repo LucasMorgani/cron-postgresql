@@ -1,0 +1,2 @@
+Executável
+docker compose up

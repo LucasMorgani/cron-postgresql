@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:17.4-alpine3.21
+    container_name: postgres_db
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./init-db:/docker-entrypoint-initdb.d
+      - db_data:/var/lib/postgresql/data
+  backup:
+    build: .
+    container_name: backup_db
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./backups:/backups
+    
+volumes:
+  db_data:
